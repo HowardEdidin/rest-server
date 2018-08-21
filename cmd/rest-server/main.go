@@ -75,18 +75,17 @@ func tlsSettings() (bool, string, string, error) {
 }
 
 func getHandler(server restserver.Server) (http.Handler, error) {
-	mux := restserver.NewHandler(server)
-	if server.NoAuth {
+	mux := restserver.NewHandler(server)	
 		log.Println("Authentication disabled")
 		return mux, nil
-	}
+	
 
-	log.Println("Authentication enabled")
-	htpasswdFile, err := restserver.NewHtpasswdFromFile(filepath.Join(server.Path, ".htpasswd"))
-	if err != nil {
-		return nil, fmt.Errorf("cannot load .htpasswd (use --no-auth to disable): %v", err)
-	}
-	return server.AuthHandler(htpasswdFile, mux), nil
+	//log.Println("Authentication enabled")
+	//htpasswdFile, err := restserver.NewHtpasswdFromFile(filepath.Join(server.Path, ".htpasswd"))
+	//if err != nil {
+	//	return nil, fmt.Errorf("cannot load .htpasswd (use --no-auth to disable): %v", err)
+	//}
+	//return server.AuthHandler(htpasswdFile, mux), nil
 }
 
 func runRoot(cmd *cobra.Command, args []string) error {
