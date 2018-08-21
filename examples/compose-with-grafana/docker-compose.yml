@@ -12,7 +12,7 @@ services:
       - data:/data
     environment:
       DISABLE_AUTHENTICATION: 1
-      OPTIONS: "--prometheus --no-auth --tls ----tls-cert /etc/ssl/caddy/star_hl7-fhir_com_cert.pem ----tls-key /etc/ssl/caddy/pvt_star_hl7-fhir_com.pem"
+      OPTIONS: "--prometheus --no-auth --tls --tls-cert /home/bts/rest-server/star_hl7-fhir_com_cert.pem --tls-key /home/bts/rest-server/pvt_star_hl7-fhir_com.pem"
     ports:
       - "127.0.0.1:8010:8000"
     networks:
