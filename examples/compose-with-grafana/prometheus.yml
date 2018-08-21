@@ -18,6 +18,6 @@ scrape_configs:
     #basic_auth:
     #  username: test
     #  password: test
-    #scheme: https
+    scheme: https
     static_configs:
       - targets: ['restserver:8000']
